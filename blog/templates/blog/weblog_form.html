@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block blog_active %}current{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Create Blog</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% include 'blog/form-template.html' %}
+        <br>
+        <button style="background-color: #e8491d;border-radius: 2px;color: white;padding: 5px 10px;text-align: center;text-decoration: none;display: inline-block;
+                font-size: 16px;" type="submit" id="post">Submit</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+
+{% block blog_active %}current{% endblock %}
+{% block blog_url %}#{% endblock %}
+
+{% block body %}
+    <h1 style="margin-left: 100px">{{ weblog }}</h1>
+    {% if weblog.post_set.all %}
+        <section>
+            <div class="container">
+                <div class="blog">
+                    {% for post in weblog.post_set.all %}
+                        <div class="blog-post">
+                            <h1>
+                                {{ weblog.author }}
+                                <br>
+                                <time datetime="2000-10-24 9:00">{{ post.post_date }}</time>
+                            </h1>
+                            <div class="post-content">
+                                <h2>{{ post.title }}</h2>
+                                <p>{{ post.summary }}</p>
+                                <a href="{% url 'blog:detail' weblog.pk post.id %}">Read More...</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% else %}
+        <br>
+        <h3 style="margin-left: 40px">You don't have any posts</h3>
+    {% endif %}
+
+    <br>
+    <br>
+    <hr>
+    <a href="{% url 'blog:post' weblog.pk %}" style="margin-left: 40px;text-decoration: none;color: darkslategrey">
+        Add Post
+    </a>
+    <br>
+    <hr>
+    <a href="{% url 'blog:create' %}" style="margin-left: 40px;text-decoration: none;color: darkslategrey">
+        Add Blog
+    </a>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+
+{% block blog_active %}current{% endblock %}
+
+{% block blog_url %}{% url 'blog:index' post.blog.pk %}{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="post-page">
+                <h1>{{ post.title }}</h1>
+                <div class="summary">{{ post.summary }}</div>
+                <hr>
+                <h2>
+                    {{ post.blog.author }}
+                    <br>
+                    <time datetime="2000-10-24 9:00">{{ post.post_date }}</time>
+                </h2>
+                <p>{{ post.post_text }}</p>
+                <br>
+                <hr>
+                <br>
+                <h2>Comments</h2>
+                <ul>
+                    {% for comment in post.comment_set.all %}
+                        <li>{{ comment.comment_text }} - {{ comment.comment_date }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'blog:comment' post.blog.pk post.pk %}"
+                   style="margin-left: 40px;text-decoration: none;color: darkslategrey">
+                    Read Comment
+                </a>
+                <br>
+                <a href="{% url 'blog:comment-add' post.blog.pk post.pk %}"
+                   style="margin-left: 40px;text-decoration: none;color: darkslategrey">
+                    Add Comment
+                </a>
+
+                <br><br>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

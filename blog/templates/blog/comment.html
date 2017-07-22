@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% block blog_active %}current{% endblock %}
+{% block blog_url %}{% url 'blog:index' post.blog.pk %}{% endblock %}
+
+{% block body %}
+    <h1 style="margin-left: 100px">Comments</h1>
+    {% if post.comment_set.all %}
+        <section>
+            <div class="container">
+                {% for comment in post.comment_set.all %}
+                    <h1>
+                        <time datetime="2000-10-24 9:00">{{ comment.comment_date }}</time>
+                    </h1>
+                    <p>{{ comment.comment_text }}</p>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <br>
+    <br>
+    <hr>
+    <a href="{% url 'blog:comment-add' post.blog.pk post.pk %}" style="margin-left: 40px;text-decoration: none;color: darkslategrey">
+        Add Comment
+    </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+

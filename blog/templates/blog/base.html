@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/stylesheet.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div id="name">
+            <h1><span class="highlight">Fatemeh</span> Alipour</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'account:register' %}">Register</a></li>
+                <li class="{% block login_active %}{% endblock %}"><a href="{% url 'account:login' %}">Login</a></li>
+                <li class="{% block blog_active %}{% endblock %}"><a href="{% block blog_url %}{% endblock %}">Blog</a></li>
+                <li><a href="{% url 'account:logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<br>
+
+
+
+{% block body %}
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+
+<footer class="second">
+    <p>Fatemeh Alipour, Copyright &copy; 2017</p>
+</footer>
+
+</body>
+</html>
