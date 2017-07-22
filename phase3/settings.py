@@ -25,7 +25,7 @@ SECRET_KEY = 'fnr(k-w1kw18t%85xo$)(*_yp%&9fjcjb8u&e$c5(hkv)nx6gs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['falipour.pythonanywhere.com']
 
 
 # Application definition
